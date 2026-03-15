@@ -9,9 +9,12 @@ import javax.swing.JTextArea;
 
 public class Ventana extends JFrame {
    private Container contenedor;
+   private JPanel panelNOR;
    
    public Ventana(){
         super("Tienda de Chamarras");
+      initNOR();
+
       
       JPanel tienda = new JPanel();
         tienda.setLayout(new GridLayout(6,1));
@@ -25,6 +28,15 @@ public class Ventana extends JFrame {
       
       add(shopping,BorderLayout.WEST);
 }
+   
+   private void initNOR() {
+       panelNOR = new JPanel(new BorderLayout());
+        panelNOR.setBorder(BorderFactory.createTitledBorder("SUDADERAS"));
+        panelNOR.add(new JLabel("TIENDA DE SUDADERAS",
+                SwingConstants.CENTER), BorderLayout.CENTER);
+        add(panelNOR, BorderLayout.NORTH);
+    }
+   
    public void pagar(){
 
         if(total == 0){
@@ -41,3 +53,4 @@ public class Ventana extends JFrame {
         totalDin.setText("Total: $0");
     
     }
+   
