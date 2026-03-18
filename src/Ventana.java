@@ -9,6 +9,9 @@ import javax.swing.JTextArea;
 
 public class Ventana extends JFrame {
    private Container contenedor;
+    private JButton btns[];
+    private JLabel totalP;
+    private int total=0;
    
    public Ventana(){
         super("Tienda de Chamarras");
@@ -40,4 +43,27 @@ public class Ventana extends JFrame {
         total = 0;
         totalDin.setText("Total: $0");
     
+    }
+    private void initEST() {
+       
+        panelEST = new JPanel();
+        panelEST.setLayout(new BoxLayout(panelEST, BoxLayout.Y_AXIS));
+        panelEST.setBorder(BorderFactory.createTitledBorder("RESUMEN DE CARRITO"));
+        
+        totalP = new JLabel("TOTAL A PAGAR: $" + total);
+        totalP.setAlignmentX(Component.CENTER_ALIGNMENT); 
+        totalP.setFont(new Font("Segoe UI", Font.BOLD, 25));
+        totalP.setForeground(new Color(255, 105, 180)); 
+    
+    panelEST.add(totalP);
+        String [] opciones ={"PAGAR TOTAL","LIMPIAR CARRITO"};
+        for(String op:opciones){
+            JButton btn = new JButton (op);
+            btn.setAlignmentX(Component.CENTER_ALIGNMENT);
+            panelEST.add(btn);
+
+        }
+         panelEST.add(Box.createVerticalStrut(25));
+        add(panelEST, BorderLayout.CENTER);
+       
     }
