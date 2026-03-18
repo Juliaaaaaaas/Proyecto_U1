@@ -60,6 +60,16 @@ public class Ventana extends JFrame {
         for(String op:opciones){
             JButton btn = new JButton (op);
             btn.setAlignmentX(Component.CENTER_ALIGNMENT);
+           
+           btn.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (op.equals("LIMPIAR CARRITO")) {
+                    total = 0; 
+                    totalP.setText("TOTAL A PAGAR: $0");
+                    }
+                }
+            });
             panelEST.add(btn);
 
         }
